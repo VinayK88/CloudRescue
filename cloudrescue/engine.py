@@ -1,6 +1,7 @@
 from typing import Dict, List
 from .models import RecoveryProfile, Scenario, Assessment
 from .fixtures import PROFILES, SCENARIOS
+from .ml import forecast, model_summary
 
 RECOMMENDATIONS = {
     "backup_immutable": "enforce immutable retention / vault lock on recovery copies",
@@ -93,6 +94,16 @@ def assess(profile: RecoveryProfile, scenario: Scenario) -> Assessment:
 
 def run_baseline():
     assessments = [assess(PROFILES[s.workload], s) for s in SCENARIOS]
+    forecasts = [
+        forecast(
+            PROFILES[scenario.workload],
+            scenario,
+            assessment.status,
+            assessment.estimated_rto_minutes,
+        )
+        for assessment, scenario in zip(assessments, SCENARIOS)
+    ]
+    ml = model_summary()
     expected_matches = sum(a.status == s.expected_status for a, s in zip(assessments, SCENARIOS))
     ready = sum(a.status == "READY" for a in assessments)
     unrecoverable = sum(a.status == "UNRECOVERABLE" for a in assessments)
@@ -109,6 +120,10 @@ def run_baseline():
             "rto_targets_met": rto_met,
             "rpo_targets_met": rpo_met,
             "mean_recovery_confidence": avg_conf,
+            "ml_model": ml["model"],
+            "ml_heldout_mae_minutes": ml["heldout_mae_minutes"],
         },
+        "ml": ml,
         "assessments": [a.to_dict() for a in assessments],
+        "ml_restore_forecasts": [row.to_dict() for row in forecasts],
     }
