@@ -17,6 +17,8 @@
 
 ---
 
+![CloudRescue dashboard preview](assets/dashboard-preview.svg)
+
 ![CloudRescue recovery assurance overview](assets/cloudrescue-overview.svg)
 
 ## Overview
