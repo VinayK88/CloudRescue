@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloudrescue"
+version = "0.1.0"
+description = "Synthetic cloud ransomware resilience and recovery-assurance lab"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+api = ["fastapi>=0.110", "uvicorn>=0.29"]
+
+[project.scripts]
+cloudrescue = "cloudrescue.cli:main"
+
+[tool.setuptools]
+packages = ["cloudrescue"]
