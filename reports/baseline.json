@@ -1,0 +1,113 @@
+{
+  "assessments": [
+    {
+      "blockers": [],
+      "cloud": "AWS",
+      "degraded_controls": [],
+      "estimated_rpo_minutes": 10,
+      "estimated_rto_minutes": 62,
+      "recommended_actions": [],
+      "recovery_confidence": 100,
+      "rpo_met": true,
+      "rto_met": true,
+      "scenario_id": "admin-compromise",
+      "status": "READY",
+      "surviving_controls": [
+        "backup_available",
+        "backup_immutable",
+        "cross_account_copy",
+        "key_recoverable",
+        "recovery_identity_isolated",
+        "iac_available",
+        "dns_rebuildable",
+        "cross_region_copy"
+      ],
+      "workload": "payments-db-prod"
+    },
+    {
+      "blockers": ["backup_immutable"],
+      "cloud": "Azure",
+      "degraded_controls": [],
+      "estimated_rpo_minutes": 35,
+      "estimated_rto_minutes": 140,
+      "recommended_actions": ["enforce immutable retention / vault lock on recovery copies"],
+      "recovery_confidence": 78,
+      "rpo_met": true,
+      "rto_met": false,
+      "scenario_id": "backup-tamper",
+      "status": "UNRECOVERABLE",
+      "surviving_controls": ["backup_available", "cross_account_copy", "key_recoverable", "recovery_identity_isolated", "iac_available", "dns_rebuildable", "cross_region_copy"],
+      "workload": "customer-analytics"
+    },
+    {
+      "blockers": ["key_recoverable"],
+      "cloud": "GCP",
+      "degraded_controls": [],
+      "estimated_rpo_minutes": 8,
+      "estimated_rto_minutes": 65,
+      "recommended_actions": ["establish an independent, tested encryption-key recovery path"],
+      "recovery_confidence": 78,
+      "rpo_met": true,
+      "rto_met": false,
+      "scenario_id": "kms-loss",
+      "status": "UNRECOVERABLE",
+      "surviving_controls": ["backup_available", "backup_immutable", "cross_account_copy", "recovery_identity_isolated", "iac_available", "dns_rebuildable", "cross_region_copy"],
+      "workload": "identity-store"
+    },
+    {
+      "blockers": [],
+      "cloud": "AWS",
+      "degraded_controls": [],
+      "estimated_rpo_minutes": 18,
+      "estimated_rto_minutes": 92,
+      "recommended_actions": [],
+      "recovery_confidence": 100,
+      "rpo_met": true,
+      "rto_met": true,
+      "scenario_id": "region-outage",
+      "status": "READY",
+      "surviving_controls": ["backup_available", "backup_immutable", "cross_account_copy", "key_recoverable", "recovery_identity_isolated", "iac_available", "dns_rebuildable", "cross_region_copy"],
+      "workload": "orders-api"
+    },
+    {
+      "blockers": ["recovery_identity_isolated"],
+      "cloud": "Azure",
+      "degraded_controls": [],
+      "estimated_rpo_minutes": 45,
+      "estimated_rto_minutes": 121,
+      "recommended_actions": ["separate recovery identities from production IAM and require strong MFA / break-glass controls"],
+      "recovery_confidence": 78,
+      "rpo_met": true,
+      "rto_met": false,
+      "scenario_id": "recovery-identity-compromise",
+      "status": "UNRECOVERABLE",
+      "surviving_controls": ["backup_available", "backup_immutable", "cross_account_copy", "key_recoverable", "iac_available", "dns_rebuildable", "cross_region_copy"],
+      "workload": "ml-registry"
+    },
+    {
+      "blockers": ["iac_available"],
+      "cloud": "GCP",
+      "degraded_controls": [],
+      "estimated_rpo_minutes": 20,
+      "estimated_rto_minutes": 305,
+      "recommended_actions": ["store versioned infrastructure-as-code and recovery state outside the primary deployment plane"],
+      "recovery_confidence": 78,
+      "rpo_met": true,
+      "rto_met": false,
+      "scenario_id": "cicd-state-loss",
+      "status": "UNRECOVERABLE",
+      "surviving_controls": ["backup_available", "backup_immutable", "cross_account_copy", "key_recoverable", "recovery_identity_isolated", "dns_rebuildable", "cross_region_copy"],
+      "workload": "billing-service"
+    }
+  ],
+  "summary": {
+    "expected_status_matches": 6,
+    "mean_recovery_confidence": 85.3,
+    "ready": 2,
+    "recoverable_with_gaps": 0,
+    "rpo_targets_met": 6,
+    "rto_targets_met": 2,
+    "scenarios": 6,
+    "unrecoverable": 4
+  }
+}
