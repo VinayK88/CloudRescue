@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430">
+<rect width="1200" height="430" rx="24" fill="#07111f"/>
+<text x="60" y="65" fill="#e5eefc" font-size="34" font-family="Arial" font-weight="700">CloudRescue</text>
+<text x="60" y="100" fill="#9fb1c8" font-size="18" font-family="Arial">Cloud ransomware resilience &amp; recovery assurance</text>
+<g font-family="Arial" font-size="16" text-anchor="middle">
+<rect x="55" y="160" width="190" height="86" rx="14" fill="#0f1c2e" stroke="#315b7d"/><text x="150" y="195" fill="#d9e8f5">Production</text><text x="150" y="220" fill="#7dd3fc">Workload</text>
+<rect x="300" y="160" width="190" height="86" rx="14" fill="#0f1c2e" stroke="#315b7d"/><text x="395" y="195" fill="#d9e8f5">Backup</text><text x="395" y="220" fill="#86efac">Vault / Copy</text>
+<rect x="545" y="160" width="190" height="86" rx="14" fill="#0f1c2e" stroke="#315b7d"/><text x="640" y="195" fill="#d9e8f5">KMS + IAM</text><text x="640" y="220" fill="#fcd34d">Recovery Trust</text>
+<rect x="790" y="160" width="190" height="86" rx="14" fill="#0f1c2e" stroke="#315b7d"/><text x="885" y="195" fill="#d9e8f5">IaC + DNS</text><text x="885" y="220" fill="#c4b5fd">Rebuild Path</text>
+<rect x="1015" y="160" width="140" height="86" rx="14" fill="#13243a" stroke="#2dd4bf"/><text x="1085" y="195" fill="#d9e8f5">Recovery</text><text x="1085" y="220" fill="#5eead4">Decision</text>
+</g>
+<g stroke="#5b7896" stroke-width="3" fill="none"><path d="M245 203H300"/><path d="M490 203H545"/><path d="M735 203H790"/><path d="M980 203H1015"/></g>
+<g font-family="Arial" font-size="15"><text x="60" y="320" fill="#9fb1c8">Game-day scenarios:</text><text x="60" y="350" fill="#fda4af">admin compromise · backup tamper · KMS loss · region outage · recovery identity compromise · CI/CD state loss</text><text x="60" y="390" fill="#e5eefc">Output:</text><text x="125" y="390" fill="#86efac">READY</text><text x="210" y="390" fill="#e5eefc">/</text><text x="230" y="390" fill="#fcd34d">RECOVERABLE_WITH_GAPS</text><text x="455" y="390" fill="#e5eefc">/</text><text x="475" y="390" fill="#fca5a5">UNRECOVERABLE</text></g>
+</svg>
