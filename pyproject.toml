@@ -4,9 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cloudrescue"
-version = "0.1.0"
-description = "Synthetic cloud ransomware resilience and recovery-assurance lab"
+version = "0.2.0"
+description = "Cloud ransomware resilience and recovery assurance with ML restore-time forecasting"
 requires-python = ">=3.10"
+dependencies = ["scikit-learn==1.7.2"]
 
 [project.optional-dependencies]
 api = ["fastapi>=0.110", "uvicorn>=0.29"]
