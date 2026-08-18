@@ -4,7 +4,7 @@
 
 ### Cloud Ransomware Recovery Assurance · ML Restore-Time Forecasting
 
-**A defensive cloud-security lab that combines hard recovery dependency checks with machine-learning forecasts for restore duration and RTO pressure.**
+**A defensive cloud-security lab that combines hard recovery dependency checks with machine-learning forecasts for restore duration and Recovery Time Objective pressure.**
 
 [![CI](https://github.com/VinayK88/CloudRescue/actions/workflows/ci.yml/badge.svg)](https://github.com/VinayK88/CloudRescue/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.10--3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
